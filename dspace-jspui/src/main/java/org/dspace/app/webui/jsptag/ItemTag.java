@@ -899,8 +899,8 @@ public class ItemTag extends TagSupport
             		out.print("\">"
                         + LocaleSupport.getLocalizedMessage(pageContext,
                                 "org.dspace.app.webui.jsptag.ItemTag.view")
-                        + "</a></td></tr>");
-            	}	
+                        + "</a>");
+                        }	
             	else
             	{
             		Context context = UIUtil
@@ -933,7 +933,9 @@ public class ItemTag extends TagSupport
                                 {
                                     bsLink = bsLink + "/bitstream/"
                                             + item.getHandle() + "/"
-                                            + bitstreams[k].getSequenceID() + "/";
+                                            + bitstreams[k].getSequenceID() + "/"
+					    + UIUtil.encodeBitstreamName(bitstreams[k].getName(), Constants.DEFAULT_ENCODING);
+					out.print(" or <a href=\"#preview\" onclick=\"setPreviewSource('"+bsLink+"');\">Preview</a>");
                                 }
                                 else
                                 {
@@ -1030,6 +1032,12 @@ public class ItemTag extends TagSupport
             				}
             			}
             		}
+                        out.println("<tr><td colspan=5>");
+                        out.println("<a name='preview'");
+                        out.println("<div id=\"preview\" style=\"display:none;\"> " +
+                                                            "<iframe id=\"embed\" src=\"\" width=\"100%\" height=\"342px\" style=\"border: none;\"></iframe>" +
+                                                            "</div>");
+                        out.println("</td></tr>");
             	}
 
             	out.println("</table>");
