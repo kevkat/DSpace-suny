@@ -253,7 +253,8 @@ public class ItemTag extends TagSupport
             }
 
             i++;
-        } while (urn != null);
+        } 
+        while (urn != null);
 
         // Set sensible default if no config is found for doi & handle
         if (!urn2baseurl.containsKey("doi")){
@@ -897,6 +898,18 @@ public class ItemTag extends TagSupport
                         .print(UIUtil.encodeBitstreamName(primaryBitstream
                                 .getName(), Constants.DEFAULT_ENCODING));
             		out.print("\">"
+                        + LocaleSupport.getLocalizedMessage(pageContext,
+                                "org.dspace.app.webui.jsptag.ItemTag.view")
+                        + "</a>");
+                    out
+                        .print("</td><td class=\"standard\"><a class=\"btn btn-primary\" target=\"_blank\" href=\"");
+                    out.print(request.getContextPath());
+                    out.print("/html/");
+                    out.print(handle + "/");
+                    out
+                        .print(UIUtil.encodeBitstreamName(primaryBitstream
+                                .getName(), Constants.DEFAULT_ENCODING));
+                    out.print("\">"
                         + LocaleSupport.getLocalizedMessage(pageContext,
                                 "org.dspace.app.webui.jsptag.ItemTag.view")
                         + "</a>");
