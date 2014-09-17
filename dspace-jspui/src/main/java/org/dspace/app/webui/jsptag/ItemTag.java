@@ -911,7 +911,7 @@ public class ItemTag extends TagSupport
                                 .getName(), Constants.DEFAULT_ENCODING));
                     out.print("\">"
                         + LocaleSupport.getLocalizedMessage(pageContext,
-                                "org.dspace.app.webui.jsptag.ItemTag.view")
+                                "org.dspace.app.webui.jsptag.ItemTag.viewbrowser")
                         + "</a>");
                         }	
             	else
