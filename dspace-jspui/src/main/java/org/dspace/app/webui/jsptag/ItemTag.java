@@ -901,18 +901,6 @@ public class ItemTag extends TagSupport
                         + LocaleSupport.getLocalizedMessage(pageContext,
                                 "org.dspace.app.webui.jsptag.ItemTag.view")
                         + "</a>");
-                    out
-                        .print("</td><td class=\"standard\"><a class=\"btn btn-primary\" target=\"_blank\" href=\"");
-                    out.print(request.getContextPath());
-                    out.print("/html/");
-                    out.print(handle + "/");
-                    out
-                        .print(UIUtil.encodeBitstreamName(primaryBitstream
-                                .getName(), Constants.DEFAULT_ENCODING));
-                    out.print("\">"
-                        + LocaleSupport.getLocalizedMessage(pageContext,
-                                "org.dspace.app.webui.jsptag.ItemTag.viewbrowser")
-                        + "</a>");
                         }	
             	else
             	{
@@ -1013,13 +1001,25 @@ public class ItemTag extends TagSupport
             						}
             					}
 
-            					out.print("<a class=\"btn btn-primary\" ");
-            					out
+                                out.print("<a class=\"btn btn-primary\" ");
+                                out
                                     .print(bsLink
                                             + LocaleSupport
                                                     .getLocalizedMessage(
                                                             pageContext,
                                                             "org.dspace.app.webui.jsptag.ItemTag.view")
+                                            + "</a>");
+                                // extra view streaming button
+                                out
+                                    .print("</td><td class=\"standard\" align=\"center\">");
+            					out.print("<a class=\"btn btn-primary\" ");
+
+            					out
+                                    .print(bsLink
+                                            + LocaleSupport
+                                                    .getLocalizedMessage(
+                                                            pageContext,
+                                                            "org.dspace.app.webui.jsptag.ItemTag.viewbrowser") // ItemTag.viewbrowser defined in Messages.properties
                                             + "</a>");
             					
 								try {
