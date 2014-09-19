@@ -935,7 +935,8 @@ public class ItemTag extends TagSupport
                                 {
                                     bsLink = bsLink + "/bitstream/"
                                             + item.getHandle() + "/"
-                                            + bitstreams[k].getSequenceID() + "/"
+                                            + bitstreams[k].getSequenceID() + "/";
+
                                 }
                                 else
                                 {
@@ -947,6 +948,15 @@ public class ItemTag extends TagSupport
                                         + UIUtil.encodeBitstreamName(bitstreams[k]
                                             .getName(),
                                             Constants.DEFAULT_ENCODING) + "\">";
+
+                                String streamLink =
+                                "target=\"_blank\" href=\""
+                                + "http://trinity.hsclib.sunysb.edu:8080/xmlui/flashstreamview/bitstream/handle/"
+                                + item.getHandle() + "/"
+                                + bitstreams[k].getSequenceID() + "/"
+                                + UIUtil.encodeBitstreamName(bitstreams[k]
+                                            .getName(),
+                                            Constants.DEFAULT_ENCODING) + "?sequence=1" + "\">";
 
             					out
                                     .print("<tr><td headers=\"t1\" class=\"standard\">");
@@ -1014,7 +1024,7 @@ public class ItemTag extends TagSupport
             					out.print("<a class=\"btn btn-primary\" ");
 
             					out
-                                    .print(bsLink
+                                    .print(streamLink
                                             + LocaleSupport
                                                     .getLocalizedMessage(
                                                             pageContext,
