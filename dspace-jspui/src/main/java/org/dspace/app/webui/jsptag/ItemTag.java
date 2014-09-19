@@ -956,7 +956,7 @@ public class ItemTag extends TagSupport
                                 + bitstreams[k].getSequenceID() + "/"
                                 + UIUtil.encodeBitstreamName(bitstreams[k]
                                             .getName(),
-                                            Constants.DEFAULT_ENCODING) + "?sequence=1" + "\">";
+                                            Constants.DEFAULT_ENCODING) + "?sequence=" + bitstreams[k].getSequenceID() + "\">";
 
             					out
                                     .print("<tr><td headers=\"t1\" class=\"standard\">");
