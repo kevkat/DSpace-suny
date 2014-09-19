@@ -931,12 +931,11 @@ public class ItemTag extends TagSupport
 
                                 if ((handle != null)
                                         && (bitstreams[k].getSequenceID() > 0))
+
                                 {
                                     bsLink = bsLink + "/bitstream/"
                                             + item.getHandle() + "/"
                                             + bitstreams[k].getSequenceID() + "/"
-					    + UIUtil.encodeBitstreamName(bitstreams[k].getName(), Constants.DEFAULT_ENCODING);
-					out.print(" or <a href=\"#preview\" onclick=\"setPreviewSource('"+bsLink+"');\">Preview</a>");
                                 }
                                 else
                                 {
@@ -1000,7 +999,7 @@ public class ItemTag extends TagSupport
             									+ "\" /></a><br />");
             						}
             					}
-
+                                // this is the View/Open button
                                 out.print("<a class=\"btn btn-primary\" ");
                                 out
                                     .print(bsLink
